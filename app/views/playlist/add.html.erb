@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="search">
+    <% form_tag(params) do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>
+          Artist
+          <%= link_to '<i class="fa fa-caret-square-o-up"></i>'.html_safe, { controller: 'playlist', action: 'add', sort: 'artist', order: 'asc' } %>
+          <%= link_to '<i class="fa fa-caret-square-o-down"></i>'.html_safe, { controller: 'playlist', action: 'add', sort: 'artist', order: 'desc' } %>
+        </th>
+        <th>
+          Title
+          <%= link_to '<i class="fa fa-caret-square-o-up"></i>'.html_safe, { controller: 'playlist', action: 'add', sort: 'title', order: 'asc' } %>
+          <%= link_to '<i class="fa fa-caret-square-o-down"></i>'.html_safe, { controller: 'playlist', action: 'add', sort: 'title', order: 'desc' } %>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="releases">
+      <tr><td colspan="4" style="text-align: center;"><h2>Loading...</h2></td></tr>
+    </tbody>
+  </table>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td colspan=4 style="text-align: center;" id="releases_pagination">
+          
+        </td>
+      </tr>
+      <tr>
+        <td colspan=4 style="text-align: right;">
+          <%= link_to 'Cancel', root_path, :class => 'btn btn-primary' %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $( document ).ready(function() {
+    $.ajax({ url: "<%= load_releases_playlist_index_path(params) %>" });
+  });
+</script>

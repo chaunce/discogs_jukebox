@@ -1,0 +1,3 @@
+if ('<%= @now_playing.id %>' != $('#now_playing_id').attr("data-id")) {
+  $('#now_playing').html("<%=raw escape_javascript(render(partial: 'now_playing', object: @now_playing)) %>");
+}

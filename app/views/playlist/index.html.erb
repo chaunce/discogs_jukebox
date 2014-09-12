@@ -1,0 +1,13 @@
+<%- model_class = Album -%>
+<div class="container">
+  <div class="img-rounded" id="now_playing">
+    <%= render partial: 'now_playing', object: @now_playing %>
+  </div>
+  <div class="page-header">
+    <h2>Playlist</h2>
+  </div>
+  <div id="playlist">
+    <%= render partial: 'playlist' %>
+  </div>
+  <%= link_to 'Add a Record to my Playlist', add_playlist_index_path, :class => 'btn btn-primary' %>
+</div>

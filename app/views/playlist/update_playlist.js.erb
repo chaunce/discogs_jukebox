@@ -1,0 +1,3 @@
+if ('<%= @albums.collect(&:id).hash %>' != $('#playlist > table > tbody').attr("data-id")) {
+  $('#playlist > table > tbody').html("<%=raw escape_javascript(render(partial: 'album', collection: @albums)) %>");
+}

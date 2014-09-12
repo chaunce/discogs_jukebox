@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <% image_tag release.basic_information.thumb.to_s.gsub('api.discogs.com', 's.pixogs.com').gsub('images','image') %><br/>
+  </td>
+  <td>
+    <%= release.basic_information.artists.first.try(:name) %>
+  </td>
+  <td>
+    <%= release.basic_information.title %>
+  </td>
+  <td>
+    <%= link_to "<span class=\"glyphicon glyphicon-plus\"></span> ADD".html_safe, { controller: 'albums', action: 'create', release_id: release[:id]}, method: :post, :class => 'btn btn-primary' %>
+  </td>
+</tr>

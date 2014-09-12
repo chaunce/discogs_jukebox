@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Album</th>
+      <th>Artist</th>
+      <th>Image URL</th>
+    </tr>
+  </thead>
+  <tbody id="playlist_id" data-id="<%= @albums.collect(&:id).hash %>">
+    <%= render partial: 'album', collection: @albums %>
+  </tbody>
+</table>
