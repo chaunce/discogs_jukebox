@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'discogs-wrapper', '~> 2.0.0'
 gem 'will_paginate'
+gem 'rails_12factor', group: :production
 
 gem 'jquery-rails'
 gem 'turbolinks'
